@@ -11,4 +11,4 @@ function Def (html) {
         </html>
     )
 }
-module.exports = def
+module.exports = Def

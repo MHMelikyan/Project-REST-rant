@@ -1,6 +1,6 @@
-const { DefaultDeserializer } = require("v8")
-
-function index (data){
+const React = require('react')
+const Def = require('../default')
+function Index (data){
     let placesFormatted = data.places.map((place) => {
         return(
             <div>
@@ -18,3 +18,5 @@ function index (data){
         </Def>
     )
 }
+
+module.exports = Index
