@@ -5,7 +5,7 @@ function Def (html) {
             <head>
                 <title>Title</title>
             
-                <link rel="stylesheet" href = "/public/style.css" />
+                <link rel="stylesheet" href = "/style.css" />
             </head>
             <body>
                 {html.children}
