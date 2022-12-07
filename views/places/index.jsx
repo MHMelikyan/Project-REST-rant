@@ -4,14 +4,14 @@ function Index (data){
     let placesFormatted = data.places.map((place) => {
         return(
             //making grid
-            <div className = "col-sm-6">
+            <div className="col-sm-6">
     
                 <h2>{place.name}</h2>
-                <p className = "text-center">
+                <p className="text-center">
                     {place.cuisines}
                 </p>
-                <img src = {place.pic} alt ={place.name}></img>
-                <p className = "text-center">
+                <img src={place.pic} alt={place.name}></img>
+                <p className="text-center">
                     Locared in {place.city}, {place.state}
                 </p>
             </div>
@@ -21,7 +21,7 @@ function Index (data){
         <Def>
             <main>
                 <h1>PLACES TO RANT OR RAVE ABOUT</h1>
-                <div className = "row"> 
+                <div className="row"> 
                 {placesFormatted}
                 </div>
             </main>
