@@ -1,7 +1,22 @@
 const router = require('express').Router()
 const places = require('../modules/places.js')
 router.get('/', (req, res) =>{ 
+    console.log(places)
     res.render('places/index',{places})
+})
+
+//GET: Show
+router.get('/:id', (req,res)=>{
+    let id = Number(req.params.id)
+    if(isNaN(id)){
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        res.render('places/show', {place: places[id]})
+    }
 })
 
 // GET: new places
