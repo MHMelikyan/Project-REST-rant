@@ -9,25 +9,39 @@ function new_form(){
                     <form method="POST" action="/places">
                         <div className="form-group">
                             <lable htmlFor="name">Place Name</lable>
-                            <input className="form-control" id="name" name="name" required/>
+                            <input className="form-control"
+                             id="name" 
+                             name="name" 
+                             required/>
                         </div>
                         <div className="form-group" >
                         <lable htmlFor="pic"> Place Picture</lable>
-                        <input className="form-control" id="pic" name="pic"/>
+                        <input className="form-control" 
+                        id="pic" 
+                        name="pic"/>
                         </div>
                         <div className="form-group">
                             <lable htmlFor="city">City</lable>
-                            <input className="form-control" id="city" name="city"/>
+                            <input className="form-control" 
+                            id="city" 
+                            name="city"/>
                         </div>
                         <div className="form-group">
                             <lable htmlFor="state">State</lable>
-                        <input className="form-control"id="state" name="state"/>
+                        <input className="form-control"
+                        id="state" 
+                        name="state"/>
                          </div>
                          <div className="form-group" >
                             <lable htmlFor="cuisines">Cuisines</lable>
-                            <input className="form-control"id="cuisines" name="cuisines" required/>
+                            <input className="form-control"
+                            id="cuisines" 
+                            name="cuisines" 
+                            required/>
                          </div >
-                         <input className="btn btn-primary"type="submit" value="Add Place"/>
+                         <input className="btn btn-primary"
+                         type="submit" 
+                         value="Add Place"/>
                     </form>
                 
             </main>
