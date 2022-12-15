@@ -1,13 +1,13 @@
 const React = require('react')
 const Def = require('../default')
 function Index (data){
-    let placesFormatted = data.places.map((place,index) => {
+    let placesFormatted = data.places.map((place,) => {
         return(
             //making grid
             <div className="col-sm-6">
     
                 <h2>
-                    <a href = {`/places/${index}`}>
+                    <a href = {`/places/${place.id}`}>
                     {place.name}
                     </a>
                     </h2>
