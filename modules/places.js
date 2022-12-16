@@ -1,16 +1,3 @@
-// module.exports  [{
-//     name: 'Olive Garden',
-//     city: 'Burlington',
-//     state: 'NC',
-//     cuisines: 'Italian and American',
-//     pic: '/images/olive-garden.jpeg'
-// }, {
-//     name: 'Caucasus',
-//     city: 'Yerevan',
-//     state: 'Armenia',
-//     cuisines: 'Armenian, Georgian',
-//     pic: '/images/kovkas.jpeg'
-// }]
 const mongoose = require('mongoose')
 
 module.exports.Place = require('./places')
@@ -20,7 +7,10 @@ const placeSchema = new mongoose.Schema({
     type: String,
      required: true 
     },
-  pic: String,
+  pic:{
+    type: String,
+    default: 'http://placekitten.com/350/350'
+  },
 
   cuisines: { 
     type: String, 
@@ -34,7 +24,14 @@ const placeSchema = new mongoose.Schema({
     type: String,
      default: 'USA' 
     },
-  founded: Number
+  founded: {
+    type:Number,
+    min:[1673, 'Surely not that old?'],
+    max:[new Date().getFullYear(),'..ey, this is in the future!']
+  }
 })
-
+placeSchema.methods.showEstablished = function() {
+  return `${this.name} has been serving ${this.city}, ${this.state} since ${this.founded}.`
+    }
+      
 module.exports = mongoose.model('Place', placeSchema)

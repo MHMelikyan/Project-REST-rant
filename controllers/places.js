@@ -17,8 +17,13 @@ router.post('/', (req, res) => {
     res.redirect('/places')
   })
   .catch(err =>{
-    console.log('err',err)
-    res.render('error404')
+    if(err && err.name == 'ValidationError'){
+        //TODO: generate error massage
+    }
+    else{
+        res.render('error404')
+    }
+    
   })
 })
 
@@ -28,7 +33,7 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
-  .than(place => {
+  .then(place => {
     res.render('places/show',{place})
   })
   .catch(err => {
