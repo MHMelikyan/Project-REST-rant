@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const db = require('../modules')
+const db= require('../modules')
 router.get('/', (req, res) => {
   db.Place.find()
   .then((places)=>{
@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
     console.log(err)
     res.render('error404')
   })
+  
 })
 
 router.post('/', (req, res) => {
@@ -16,15 +17,20 @@ router.post('/', (req, res) => {
   .then(()=>{
     res.redirect('/places')
   })
-  .catch(err =>{
-    if(err && err.name == 'ValidationError'){
-        //TODO: generate error massage
+  .catch(err=>{
+    if(err && err.name == 'validationError'){
+      let message = 'Validation Error'
+      for(var field in err.errors){
+        massage += `${field} was ${err.errors[field].value}.`
+        massage += `${err.errors[field].massage}`
+      }
+      res.render('places/new',{message})
     }
     else{
-        res.render('error404')
+    res.render('error404')
     }
-    
   })
+  
 })
 
 router.get('/new', (req, res) => {
@@ -33,13 +39,13 @@ router.get('/new', (req, res) => {
 
 router.get('/:id', (req, res) => {
   db.Place.findById(req.params.id)
-  .then(place => {
+  .then(place=>{
     res.render('places/show',{place})
   })
-  .catch(err => {
+  .catch(err=>{
     console.log('err',err)
     res.render('error404')
-  } )
+  })
 })
 
 router.put('/:id', (req, res) => {

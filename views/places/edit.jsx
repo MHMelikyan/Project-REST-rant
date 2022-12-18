@@ -15,7 +15,7 @@ function edit_form(data) {
                              name="name" 
                              value = {data.place.name}
                              required/>
-                        </div>
+                                      </div>
                         <div className="form-group col-sm-6" >
                         <lable htmlFor="pic"> Place Picture</lable>
                         <input className="form-control"
