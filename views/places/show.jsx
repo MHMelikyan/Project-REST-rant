@@ -49,10 +49,7 @@ function show(data){
                     <h2>Rating</h2>
                 
                    </div>
-
-            
-            
-            <a href={`/places/${data.id}/edit`} className="btn btn-warning">
+           <a href={`/places/${data.id}/edit`} className="btn btn-warning">
                 Edit
             </a>
             <form method="POST" action={`/places/${data.id}?_method=DELETE`}>
@@ -60,11 +57,11 @@ function show(data){
                     Delete
                 </button>
             </form>
-            <div className = "col-sm-6">
+              <div className = "col-sm-6">
                 <h2> Comments</h2>
                 {comments}
                 <a href ={`/places/${data.place.id}/rant`} className='btn btn-danger'> Add a Rant</a>
-            </div>
+              </div>
         </main>    
         </Def>
     )

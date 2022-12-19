@@ -2,7 +2,7 @@ const React = require('react')
 const Def = require('../default')
 
 function new_form(data){ 
-    let massage = 'Validation Error'
+    let massage = ''
     if(data.massage){
         massage =(
             <h4 className="alert-danger">
